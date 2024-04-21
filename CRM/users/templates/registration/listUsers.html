@@ -1,0 +1,33 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href={% static 'styles.css' %}>
+<body class = "listuser-body">
+    <h1 class = "listuser-title">Lista de Usuarios</h1>
+    <table class = "listuser-table">
+        <thead>
+            <tr class = "listuser-lines">
+                <th class = "listuser-headers">ID</th>
+                <th class = "listuser-headers">Nombre de Usuario</th>
+                <th class = "listuser-headers">Fecha de Creación</th>
+                <th class = "listuser-headers">Nombre</th>
+                <th class = "listuser-headers">Apellido</th>
+                <th class = "listuser-headers">Email</th>
+                <th class = "listuser-headers">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in object_list %}
+            <tr class = "listuser-lines">
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.fecha_registro }}</td>
+                <td>{{ user.nombre }}</td>
+                <td>{{ user.apellido }}</td>
+                <td>{{ user.email }}</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a class = "listuser-back" href="{% url 'index' %}">VOLVER</a>
+</body>

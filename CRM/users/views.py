@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import usuarios
-from django.views.generic import TemplateView, CreateView, FormView
+from django.views.generic import TemplateView, CreateView, FormView, ListView
 from .forms import *
 from django.urls import reverse_lazy
 from django.core.mail import send_mail
@@ -42,5 +42,9 @@ class createUser(FormView):
             fail_silently=False,
         )
         return super().form_valid(form)
-   
+
+class userList(ListView):
+    model = usuarios
+    template_name = "registration/listUsers.html"
+
 

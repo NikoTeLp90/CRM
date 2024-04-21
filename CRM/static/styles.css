@@ -60,3 +60,51 @@
 #dropdown-menu li a:hover {
     background-color: #f0f0f0;
 }
+
+/* Aca arranco con la tabla */
+
+.listuser-body {
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    height: 100vh;
+    margin: 0; /* Elimina el margen predeterminado del cuerpo */
+    background-color: #f0f0f0;
+    }
+
+.listuser-title{
+    align-items: center;
+    color: #333;
+    margin-top: 10px;
+    
+}
+.listuser-table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-top: 10px;
+
+}
+
+.listuser-headers {
+    padding: 10px;
+    text-align: center;
+    background-color: blue;
+    color: white;
+}
+
+
+.listuser-lines:nth-child(even) {
+    background-color: #ffffff;
+    text-align: center;
+    font-size: 18px;
+}
+
+.listuser-lines:nth-child(odd) {
+    background-color: rgb(102, 231, 248);
+    text-align: center;
+    font-size: 18px;
+}
+
+.listuser-back{
+    margin-top: 30px;
+}
