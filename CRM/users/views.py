@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import usuarios
 from django.views.generic import TemplateView, CreateView
 
 # Create your views here.
@@ -10,6 +11,6 @@ class home(TemplateView):
 
 
 class createUser(CreateView):
-    model = MODEL_NAME
-    template_name = "TEMPLATE_NAME"
+    model = usuarios
+    template_name = "registration/userCreation.html"
 

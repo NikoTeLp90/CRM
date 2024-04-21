@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" type="text/css" href={% static 'styles.css' %}>
+    <script src="{% static 'scripts.js' %}"></script>
     <title>CRM</title>
 </head>
 <header>
     <div class = "navbar">
         <nav>
-            <a class = "links" href="index.html">Inicio</a>
-            <a class = "links" href="#">Usuarios</a>
+            <a class = "links" href="{% url 'index' %}" >Inicio</a>
+            <a class = "links" href="#" id="dropdown-toggle">Usuarios</a>
+                <ul id="dropdown-menu">
+                    <li><a href="{% url 'createuser' %}">Crear usuario</a></li>
+                    <li><a href="#">Listar usuarios</a></li>
+                    <li><a href="#">Editar usuario</a></li>
+                    <li><a href="#">Buscar usuario</a></li>
+                    <li><a href="#">Eliminar usuario</a></li>
+                    <li><a href="#">Suspender usuario</a></li>
+                </ul>
         </nav>
     </div>
 </header>
