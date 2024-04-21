@@ -116,6 +116,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+
+AUTH_USER_MODEL = 'users.usuarios'
+
+LOGIN_URL = "/login.html"
+
+LOGIN_REDIRECT_URL = "/"
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    # Otros backends de autenticación si los tienes
+]
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
@@ -125,3 +137,10 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587  # Puerto TLS predeterminado
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'nikote.lp@gmail.com'  # Reemplaza con tu dirección de correo electrónico de Gmail
+EMAIL_HOST_PASSWORD = 'mlye euem kkhi wtic'

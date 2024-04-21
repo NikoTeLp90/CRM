@@ -13,13 +13,13 @@
         <nav>
             <a class = "links" href="{% url 'index' %}" >Inicio</a>
             <a class = "links" href="#" id="dropdown-toggle">Usuarios</a>
-                <ul id="dropdown-menu">
-                    <li><a href="{% url 'createuser' %}">Crear usuario</a></li>
-                    <li><a href="#">Listar usuarios</a></li>
-                    <li><a href="#">Editar usuario</a></li>
-                    <li><a href="#">Buscar usuario</a></li>
-                    <li><a href="#">Eliminar usuario</a></li>
-                    <li><a href="#">Suspender usuario</a></li>
+                <ul class = "links-submenu" id="dropdown-menu">
+                    <li class = "links-submenu-li"><a class = "sublinks" href="{% url 'createuser' %}">Crear usuario</a></li>
+                    <li class = "links-submenu-li"><a class = "sublinks" href="#">Listar usuarios</a></li>
+                    <li class = "links-submenu-li"><a class = "sublinks" href="#">Editar usuario</a></li>
+                    <li class = "links-submenu-li"><a class = "sublinks" href="#">Buscar usuario</a></li>
+                    <li class = "links-submenu-li"><a class = "sublinks" href="#">Eliminar usuario</a></li>
+                    <li class = "links-submenu-li"><a class = "sublinks" href="#">Suspender usuario</a></li>
                 </ul>
         </nav>
     </div>

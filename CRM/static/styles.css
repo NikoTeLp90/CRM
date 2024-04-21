@@ -11,6 +11,31 @@
 
 }
 
+.links-submenu{
+    color: white;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    align-items: center;
+    margin: 10px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border-top: #333;
+    border-bottom: #333;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    
+
+}
+
+
 .titulo {
     color: red;
 }
