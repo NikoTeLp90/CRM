@@ -1,0 +1,16 @@
+.navbar{
+    background-color: blue;
+    height: 25px; 
+}
+
+.links {
+    color: white;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    align-items: center;
+
+}
+
+.titulo {
+    color: red;
+}
