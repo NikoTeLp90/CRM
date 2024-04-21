@@ -1,6 +1,11 @@
-.navbar{
+.navbar {
     background-color: blue;
     height: 25px; 
+    width: 100%; 
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    margin-left: 10px;
+    
 }
 
 .links {
@@ -8,10 +13,9 @@
     font-size: 16px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     align-items: center;
-
 }
 
-.links-submenu{
+.links-submenu {
     color: white;
     font-size: 16px;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -31,10 +35,7 @@
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     cursor: pointer;
-    
-
 }
-
 
 .titulo {
     color: red;
@@ -65,46 +66,52 @@
 
 .listuser-body {
     display: flex;
-    flex-direction: column; /* Apila los elementos verticalmente */
-    align-items: center; /* Centra horizontalmente */
-    height: 100vh;
-    margin: 0; /* Elimina el margen predeterminado del cuerpo */
-    background-color: #f0f0f0;
-    }
-
-.listuser-title{
+    flex-direction: column;
     align-items: center;
-    color: #333;
-    margin-top: 10px;
-    
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
 }
+
+.listuser-title {
+    text-align: center;
+    color: #333;
+    margin-top: 30px; /* Ajustado el margen superior */
+    margin-bottom: 20px;
+}
+
+.listuser-table-container {
+    display: flex;
+    justify-content: center;
+}
+
 .listuser-table {
     border-collapse: collapse;
-    width: 80%;
+    width: 80%; /* Cambiado al 100% */
     margin-top: 10px;
+}
 
+.listuser-headers,
+.listuser-lines td {
+    padding: 10px;
+    text-align: center;
 }
 
 .listuser-headers {
-    padding: 10px;
-    text-align: center;
     background-color: blue;
     color: white;
 }
 
-
 .listuser-lines:nth-child(even) {
     background-color: #ffffff;
-    text-align: center;
     font-size: 18px;
 }
 
 .listuser-lines:nth-child(odd) {
     background-color: rgb(102, 231, 248);
-    text-align: center;
     font-size: 18px;
 }
 
-.listuser-back{
+.listuser-back {
     margin-top: 30px;
 }

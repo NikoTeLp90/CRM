@@ -1,6 +1,10 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href={% static 'styles.css' %}>
+<header>
+{% include 'base.html' %}
+</header>
 <body class = "listuser-body">
+
     <h1 class = "listuser-title">Lista de Usuarios</h1>
     <table class = "listuser-table">
         <thead>
