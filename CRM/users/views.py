@@ -1,11 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import usuarios
-from django.views.generic import TemplateView, CreateView, FormView, ListView
+from django.views.generic import TemplateView, CreateView, FormView, ListView, UpdateView, DeleteView, View
 from .forms import *
 from django.urls import reverse_lazy
 from django.core.mail import send_mail
 from .utils import generate_random_password
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -42,9 +43,58 @@ class createUser(FormView):
             fail_silently=False,
         )
         return super().form_valid(form)
+    
+class userCreationSuccess(View):
+    model = usuarios
+    template_name = "registration/usercreationsuccess.html"
 
 class userList(ListView):
     model = usuarios
     template_name = "registration/listUsers.html"
 
 
+
+class userEdit(UpdateView):
+    model = usuarios
+    template_name = "registration/edituser.html"
+    form_class = editUserform
+    success_url = reverse_lazy("index")
+
+
+
+class userDelete(DeleteView):
+    model = usuarios
+    template_name = "registration/deleteuser.html"
+    success_url = reverse_lazy("index")
+
+class SearchUser(View):
+    def get(self, request):
+        return render(request, 'registration/searchuser.html')
+
+class SearchResults(View):
+    def get(self, request):
+        search_term = request.GET.get('search_term', '')
+        search_option = request.GET.get('search_option')
+
+        if search_option == 'ID':
+            results = usuarios.objects.filter(id=search_term)
+        elif search_option == 'DNI':
+            results = usuarios.objects.filter(dni=search_term)
+        elif search_option == 'Nombre':
+            results = usuarios.objects.filter(nombre__icontains=search_term)
+        elif search_option == 'Apellido':
+            results = usuarios.objects.filter(apellido__icontains=search_term)
+        else:
+            results = []
+
+        return render(request, 'registration/search_results.html', {'results': results})
+
+class suspenderHabilitarUsuario(View):
+    def get(self, request, pk):
+        usuario = usuarios.objects.get(pk=pk)
+        if usuario.is_active:
+            usuario.is_active = False
+        else:
+            usuario.is_active = True
+        usuario.save()
+        return redirect('index') 

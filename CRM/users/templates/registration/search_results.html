@@ -1,0 +1,42 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href={% static 'styles.css' %}>
+<header>
+{% include 'base.html' %}
+</header>
+{% if results %}
+    <ul>
+    
+    <table class = "listuser-table">
+        <thead>
+            <tr class = "listuser-lines">
+                <th class = "listuser-headers">ID</th>
+                <th class = "listuser-headers">Nombre de Usuario</th>
+                <th class = "listuser-headers">Fecha de Creación</th>
+                <th class = "listuser-headers">Nombre</th>
+                <th class = "listuser-headers">Apellido</th>
+                <th class = "listuser-headers">DNI</th>
+                <th class = "listuser-headers">Email</th>
+                <th class = "listuser-headers">Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for usuario in results %}
+            <tr class = "listuser-lines">
+                <td>{{ usuario.id }}</td>
+                <td>{{ usuario.username }}</td>
+                <td>{{ usuario.fecha_registro }}</td>
+                <td>{{ usuario.nombre }}</td>
+                <td>{{ usuario.apellido }}</td>
+                <td>{{ usuario.dni }}</td>
+                <td>{{ usuario.email }}</td>
+                <td></td>
+            </tr>
+            
+        </tbody>
+    </table>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No se encontraron resultados.</p>
+{% endif %}

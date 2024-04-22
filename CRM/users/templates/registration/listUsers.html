@@ -27,7 +27,16 @@
                 <td>{{ user.nombre }}</td>
                 <td>{{ user.apellido }}</td>
                 <td>{{ user.email }}</td>
-                <td></td>
+                <td>
+                <a href="{% url 'edituser' user.id %}">Editar</a>
+                <a href="{% url 'userDelete' user.id %}">Eliminar</a>
+                {% if user.is_active %}
+                <a href="{% url 'suspenderHabilitarUsuario' user.id %}">Suspender</a>
+                {% else %}
+                <a href="{% url 'suspenderHabilitarUsuario' user.id %}">Habilitar</a>
+                {% endif %}
+                
+                </td>
             </tr>
             {% endfor %}
         </tbody>

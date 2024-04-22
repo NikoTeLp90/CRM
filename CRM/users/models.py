@@ -34,6 +34,7 @@ class usuarios(AbstractUser):
     dni = models.IntegerField(blank=True, null= True, unique=True)
     email = models.EmailField(unique=True)
     telefono = models.CharField(max_length=50)
+    direccion = models.CharField(max_length=150, blank=True, null = True)
     password = models.CharField(max_length=128, default='')
     fecha_registro = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)

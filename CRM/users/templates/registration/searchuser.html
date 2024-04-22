@@ -1,0 +1,8 @@
+<form method="GET" action="{% url 'search_results' %}">
+    <input type="text" name="search_term">
+    <input type="radio" name="search_option" value="ID"> Por ID
+    <input type="radio" name="search_option" value="DNI"> Por DNI
+    <input type="radio" name="search_option" value="Nombre"> Por Nombre
+    <input type="radio" name="search_option" value="Apellido"> Por Apellido
+    <button type="submit">Buscar</button>
+</form>
