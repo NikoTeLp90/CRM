@@ -116,6 +116,4 @@ class companyIndex(View):
     def get(self, request):
         user = request.user
         companias_asignadas = companies.objects.filter(responsable=user)
-        print(user)
-        print(companias_asignadas)
         return render(request, 'companies/index.html', {'companias': companias_asignadas})
