@@ -1,4 +1,5 @@
 from django.urls import path
+from django.contrib.auth.decorators import login_required
 from .views import (home, 
                     createUser,
                     userCreationSuccess, 
@@ -10,10 +11,11 @@ from .views import (home,
                     SearchResults,
                     suspenderHabilitarUsuario,
                     createCompany,
-                    companyIndex)
+                    companyIndex,
+                    CompanyIndexView)
 
 urlpatterns = [
-    path('', companyIndex.as_view(), name='index'),
+    path('', login_required(companyIndex.as_view()), name='index'),
     path('createuser/', createUser.as_view(), name = 'createuser'),
     path('usercreationsuccess/', userCreationSuccess.as_view(), name = 'usercreationsuccess'),
     path('login/', login.as_view(), name ="login"),
@@ -26,5 +28,6 @@ urlpatterns = [
 
 
     #Compañias
-    path('createcompany/',createCompany.as_view(),name="createcompany")
+    path('createcompany/',login_required(createCompany.as_view()),name="createcompany"),
+    path('company/<int:company_id>/', login_required(CompanyIndexView.as_view()), name='company_index'),
 ]

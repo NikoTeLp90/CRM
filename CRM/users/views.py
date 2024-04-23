@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
-from .models import usuarios
+from .models import usuarios, companies
 from django.views.generic import TemplateView, CreateView, FormView, ListView, UpdateView, DeleteView, View
 from .forms import *
 from django.urls import reverse_lazy
 from django.core.mail import send_mail
 from .utils import generate_random_password
 from django.contrib.auth.views import LoginView
+from django.http import Http404
 
 
 
@@ -117,3 +118,13 @@ class companyIndex(View):
         user = request.user
         companias_asignadas = companies.objects.filter(responsable=user)
         return render(request, 'companies/index.html', {'companias': companias_asignadas})
+    
+
+class CompanyIndexView(View):
+    def get(self, request, company_id):
+        try:
+            company = companies.objects.get(id=company_id, responsable=request.user)
+            context = {'company': company}
+            return render(request, 'companies/company_index.html', context)
+        except companies.DoesNotExist:
+            raise Http404("No tienes acceso a esta compañía o no existe.")

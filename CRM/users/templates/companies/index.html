@@ -14,6 +14,7 @@
             {% for compania in companias %}
                 <li>{{ compania.nombre }}</li>
                 <li>{{ compania.id }}</li>
+                <a href="{% url 'company_index' compania.id %}">Ir</a>
                 <!-- Mostrar otros detalles de la compañía según sea necesario -->
             {% endfor %}
         </ul>
