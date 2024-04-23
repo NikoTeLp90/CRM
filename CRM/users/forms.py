@@ -83,4 +83,16 @@ class editUserform(forms.ModelForm):
             raise forms.ValidationError("La direccion es requerida")
         return cleaned_data
     
+class companyCreationForm(forms.ModelForm):
+    pais = forms.CharField(max_length=50, required=True)
+    actividad = forms.CharField(max_length=50, required=True)
+    descripcion = forms.CharField(max_length=250, required=True)
+    responsable = forms.ModelChoiceField(queryset=usuarios.objects.all(), required=True)
 
+    class Meta:
+        model = companies
+        fields = ['pais', 'actividad', 'descripcion', 'responsable']
+
+    def clean(self):
+        cleaned_data = super().clean()
+        return cleaned_data

@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.urls import path
 from .views import (home, 
                     createUser,
@@ -9,7 +8,8 @@ from .views import (home,
                     userDelete,
                     SearchUser,
                     SearchResults,
-                    suspenderHabilitarUsuario,)
+                    suspenderHabilitarUsuario,
+                    createCompany,)
 
 urlpatterns = [
     path('', home.as_view(), name="index"),
@@ -21,5 +21,9 @@ urlpatterns = [
     path('userdelete/<int:pk>/',userDelete.as_view(),name="userDelete"),
     path('search/', SearchUser.as_view(), name='search_user'),
     path('searchresult/', SearchResults.as_view(), name='search_results'),
-    path('suspenderHabilitarUsuario/<int:pk>',suspenderHabilitarUsuario.as_view(),name="suspenderHabilitarUsuario")
+    path('suspenderHabilitarUsuario/<int:pk>',suspenderHabilitarUsuario.as_view(),name="suspenderHabilitarUsuario"),
+
+
+    #Compañias
+    path('createcompany/',createCompany.as_view(),name="createcompany")
 ]

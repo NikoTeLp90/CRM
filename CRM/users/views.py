@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.core.mail import send_mail
 from .utils import generate_random_password
 from django.contrib.auth.views import LoginView
-from django.contrib.auth.models import User
+
 
 
 # Create your views here.
@@ -98,3 +98,8 @@ class suspenderHabilitarUsuario(View):
             usuario.is_active = True
         usuario.save()
         return redirect('index') 
+    
+class createCompany(FormView):
+    template_name = "companies/companyCreation.html"
+    form_class = companyCreationForm
+    success_url = reverse_lazy("index")

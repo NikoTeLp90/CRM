@@ -39,6 +39,7 @@ class usuarios(AbstractUser):
     fecha_registro = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    
 
     objects = CustomUserManager()
 
@@ -56,4 +57,8 @@ class usuarios(AbstractUser):
     def set_password(self, raw_password):
         self.password = make_password(raw_password)
     
-
+class companies(models.Model):
+    pais = models.CharField(max_length=50)
+    descripcion = models.CharField(max_length=250)
+    actividad = models.CharField(max_length=50)
+    responsable = models.ForeignKey("users.usuarios", on_delete=models.CASCADE)
