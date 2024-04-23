@@ -58,6 +58,7 @@ class usuarios(AbstractUser):
         self.password = make_password(raw_password)
     
 class companies(models.Model):
+    nombre = models.CharField(max_length=50)
     pais = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=250)
     actividad = models.CharField(max_length=50)

@@ -9,10 +9,11 @@ from .views import (home,
                     SearchUser,
                     SearchResults,
                     suspenderHabilitarUsuario,
-                    createCompany,)
+                    createCompany,
+                    companyIndex)
 
 urlpatterns = [
-    path('', home.as_view(), name="index"),
+    path('', companyIndex.as_view(), name='index'),
     path('createuser/', createUser.as_view(), name = 'createuser'),
     path('usercreationsuccess/', userCreationSuccess.as_view(), name = 'usercreationsuccess'),
     path('login/', login.as_view(), name ="login"),

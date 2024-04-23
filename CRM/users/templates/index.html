@@ -1,6 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compañías Asignadas</title>
 {% load static %}
 <link rel="stylesheet" type="text/css" href={% static 'styles.css' %}>
 
 {% include 'base.html' %}
-
-<h1 class = 'titulo'> Hola {{user.username}}</h1>
+</head>
+<body>
+    <h1 class = 'titulo'> Hola {{user.username}}</h1>
+    <h1>Compañías Asignadas a {{ user.username }}</h1>
+    <ul>
+        {% for compania in companias %}
+            <li>{{ compania.nombre }}</li>
+            <!-- Mostrar otros detalles de la compañía según sea necesario -->
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -99,7 +99,23 @@ class suspenderHabilitarUsuario(View):
         usuario.save()
         return redirect('index') 
     
+##Companies
+
 class createCompany(FormView):
     template_name = "companies/companyCreation.html"
     form_class = companyCreationForm
     success_url = reverse_lazy("index")
+
+    def form_valid(self, form):
+        # Guardar la compañía en la base de datos
+        form.save()
+        return super().form_valid(form)
+
+
+class companyIndex(View):
+    def get(self, request):
+        user = request.user
+        companias_asignadas = companies.objects.filter(responsable=user)
+        print(user)
+        print(companias_asignadas)
+        return render(request, 'companies/index.html', {'companias': companias_asignadas})

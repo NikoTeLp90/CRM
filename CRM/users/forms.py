@@ -84,6 +84,7 @@ class editUserform(forms.ModelForm):
         return cleaned_data
     
 class companyCreationForm(forms.ModelForm):
+    nombre = forms.CharField(max_length=50, required= True)
     pais = forms.CharField(max_length=50, required=True)
     actividad = forms.CharField(max_length=50, required=True)
     descripcion = forms.CharField(max_length=250, required=True)
@@ -91,7 +92,7 @@ class companyCreationForm(forms.ModelForm):
 
     class Meta:
         model = companies
-        fields = ['pais', 'actividad', 'descripcion', 'responsable']
+        fields = ['nombre', 'pais', 'actividad', 'descripcion', 'responsable']
 
     def clean(self):
         cleaned_data = super().clean()
