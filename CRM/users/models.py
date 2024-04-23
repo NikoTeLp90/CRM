@@ -37,6 +37,7 @@ class usuarios(AbstractUser):
     direccion = models.CharField(max_length=150, blank=True, null = True)
     password = models.CharField(max_length=128, default='')
     fecha_registro = models.DateTimeField(auto_now_add=True)
+    companies = models.ManyToManyField('companies', related_name='usuarios')
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     
@@ -62,4 +63,4 @@ class companies(models.Model):
     pais = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=250)
     actividad = models.CharField(max_length=50)
-    responsable = models.ForeignKey("users.usuarios", on_delete=models.CASCADE)
+    responsable = models.ForeignKey("users.usuarios", on_delete=models.CASCADE, related_name='responsable_companies')

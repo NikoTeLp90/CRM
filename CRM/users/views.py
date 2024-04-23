@@ -53,7 +53,15 @@ class userList(ListView):
     model = usuarios
     template_name = "registration/listUsers.html"
 
-
+    def get_queryset(self):
+        # Obtener el usuario actual
+        user = self.request.user
+        print(user)
+        # Filtrar los usuarios por las compañías asociadas al usuario actual
+        queryset = super().get_queryset().filter(responsable_companies__in=user.responsable_companies.all()).distinct()
+        print(queryset)
+        return queryset
+        
 
 class userEdit(UpdateView):
     model = usuarios
